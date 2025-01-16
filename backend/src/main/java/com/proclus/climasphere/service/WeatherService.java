@@ -34,6 +34,7 @@ public class WeatherService {
 
         String url = String.format(formatter, apiUrl, query, apiKey);
 
+        // Call a GET request. Fetch the response into WeatherResponse class
         return restTemplate.getForObject(url, WeatherResponse.class);
     }
 }

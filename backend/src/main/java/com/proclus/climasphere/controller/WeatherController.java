@@ -3,6 +3,7 @@ package com.proclus.climasphere.controller;
 import com.proclus.climasphere.dto.WeatherResponse;
 import com.proclus.climasphere.service.WeatherService;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +22,16 @@ public class WeatherController {
     }
 
     @GetMapping
-    public WeatherResponse getWeather(
+    public ResponseEntity<?> getWeather(
             @RequestParam String city,
             @RequestParam(required = false) String state,
             @RequestParam(required = false) String country) {
-        return weatherService.getWeather(city, state, country);
+        try {
+            WeatherResponse weatherResponse = weatherService.getWeather(city, state, country);
+            return ResponseEntity.status(200).body(weatherResponse);
+        }
+        catch (Exception e) {
+            return ResponseEntity.status(404).body("Location not found");
+        }
     }
 }

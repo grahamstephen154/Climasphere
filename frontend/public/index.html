@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Climasphere</title>
-        <meta name="description" content="">
+        <meta name="description" content="Climasphere - Your weather companion">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="stylesheet" href="styles.css">
         <!-- Place favicon.ico in the root directory -->
-
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -20,6 +20,20 @@
             </p>
         <![endif]-->
 
-
+        <header>
+            <h1>Welcome to Climasphere</h1>
+        </header>
+        <main>
+            <form id="weatherForm">
+                <label for="city">Enter city name:</label>
+                <input type="text" id="city" name="city" required>
+                <button type="submit">Get Weather</button>
+            </form>
+            <div id="weatherContainer"></div>
+        </main>
+        <footer>
+            <p>&copy; 2025 Climasphere | by Eyoel Tesfu and Natan Getachew</p>
+        </footer>
+        <script type="text/javascript" src="javascript.js"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@ document.getElementById('weatherForm').addEventListener('submit', async (event) 
   event.preventDefault();
   const city = document.getElementById('city').value;
   await fetchWeather(city);
-  changeBackgroundImage(city); // Add this line to change the background image
+  changeBackgroundImage(city);
 });
 
 async function fetchWeather(city) {

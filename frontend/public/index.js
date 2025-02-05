@@ -25,6 +25,7 @@ async function fetchWeather(city) {
 
 function displayWeather(data) {
   const weatherContainer = document.getElementById('weatherContainer');
+  weatherContainer.style.display = "block";
   weatherContainer.innerHTML = `
     <h2>Weather in ${data.name}</h2>
     <p>Temperature: ${data.main.temp}°C</p>

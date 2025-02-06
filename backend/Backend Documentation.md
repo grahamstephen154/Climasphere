@@ -69,7 +69,7 @@ If city is not found, it returns this in the response body:
 
 Command to build and run backend:
 
--   Sh and pwsh
+-   Sh
     
         cd backend/
         ./mvnw clean && ./mvnw spring-boot:run

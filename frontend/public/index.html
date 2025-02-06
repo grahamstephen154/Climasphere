@@ -12,28 +12,42 @@
         <!-- Place favicon.ico in the root directory -->
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">
-            You are using an <strong>outdated</strong> browser. Please
-            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-            your experience.
-            </p>
-        <![endif]-->
 
-        <header>
-            <h1>Welcome to Climasphere</h1>
-        </header>
-        <main>
-            <form id="weatherForm">
-                <label for="city">Enter city name:</label>
-                <input type="text" id="city" name="city" required>
-                <button type="submit">Get Weather</button>
-            </form>
-            <div id="weatherContainer"></div>
-        </main>
-        <footer>
-            <p>&copy; 2025 Climasphere | by Eyoel Tesfu and Natan Getachew</p>
-        </footer>
-        <script type="text/javascript" src="index.js"></script>
+        <video id="video-container" autoplay muted loop>
+            <source id="background-video-source" src="https://videos.pexels.com/video-files/7799988/7799988-sd_640_360_25fps.mp4" type="video/mp4">
+            Your browser does not support my HTML5 video player
+        </video>
+
+        <div class="main-content">
+
+            <!--[if lt IE 8]>
+                <p class="browserupgrade">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+                your experience.
+                </p>
+            <![endif]-->
+
+            <header>
+                <h1>Welcome to Climasphere</h1>
+            </header>
+
+            <main>
+                <form id="weatherForm">
+                    <label for="city">Enter city name:</label>
+                    <input type="text" id="city" name="city" required>
+                    <button type="submit">Get Weather</button>
+                </form>
+                <div id="weatherContainer"></div>
+            </main>
+
+            <footer>
+                <p>&copy; 2025 Climasphere | by Eyoel Tesfu and Natan Getachew</p>
+            </footer>
+
+            <script type="module" src="index.js"></script>
+
+        </div>
+
     </body>
 </html>

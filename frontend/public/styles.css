@@ -5,20 +5,23 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #d3d3d3; /* light gray */
-  background-image: url('images/default.jpg'); /* Default background image */
+  background-color: #d3d3d3;
   background-size: cover;
   background-position: center;
 }
 
 header {
-  background-color: #000080; /* navy */
+  background-color: #000080;
   color: white;
   padding: 1em;
   text-align: center;
   width: 100%;
   position: fixed;
   top: 0;
+}
+
+.main-content {
+  z-index: 1;                   /* push the other main contents in front of the video */
 }
 
 main {
@@ -29,11 +32,11 @@ main {
   flex: 1;
   padding: 1em;
   text-align: center;
-  margin-top: 80px; /* Adjust based on header height */
+  margin-top: 80px;             /* Adjust based on header height */
 }
 
 form {
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1em;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,7 +60,7 @@ form input[type="text"] {
 
 form button {
   padding: 0.5em 1em;
-  background-color: #000080; /* navy */
+  background-color: #000080;
   color: white;
   border: none;
   border-radius: 5px;
@@ -65,7 +68,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #000066; /* darker navy */
+  background-color: #000066;
 }
 
 #weatherContainer {
@@ -76,8 +79,18 @@ form button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* fill the screen while maintaining aspect ratio */
+  z-index: -1                   /* push the video behind other content */
+}
+
 footer {
-  background-color: #000080; /* navy */
+  background-color: #000080;
   color: white;
   padding: 1em;
   text-align: center;

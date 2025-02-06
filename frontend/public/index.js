@@ -1,5 +1,7 @@
-const host = "localhost";
-const port = "8080";
+import { env } from "./env.js";
+
+const host = env.host;
+const port = env.port;
 
 document.getElementById('weatherForm').addEventListener('submit', async (event) => {
   event.preventDefault();

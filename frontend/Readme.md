@@ -1,15 +1,15 @@
-- [Serve the frontend](#orgddc79e0)
-- [Example `env.js`](#orgcf19497)
+- [Serve the frontend](#orgfbfbc25)
+- [Example `env.js`](#org6e79f34)
 
 
 
 
-<a id="orgddc79e0"></a>
+<a id="orgfbfbc25"></a>
 
 # Serve the frontend
 
 Create `env.js` and add the relevant environment variables into it. Example
-shown [here](#orgcf19497)
+shown [here](#org6e79f34)
 
 ```sh
 cd frontend/public/
@@ -20,7 +20,7 @@ python -m http.server 8000
 Then open <http://localhost:8000/> or <http://localhost:8000/index.html> in a web-browser
 
 
-<a id="orgcf19497"></a>
+<a id="org6e79f34"></a>
 
 # Example `env.js`
 
@@ -33,8 +33,4 @@ const env = {
 
 export { env };
 ```
-
-|     | hello | what |    |      |
-|-----|-------|------|----|------|
-| hey |       |      | no | yaaa |
 

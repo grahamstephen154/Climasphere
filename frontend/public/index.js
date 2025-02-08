@@ -8,7 +8,13 @@ document.getElementById('weatherForm').addEventListener('submit', async (event) 
   event.preventDefault();
   const city = document.getElementById('city').value;
   const queryToPexels = await fetchWeather(city);
-  await changeVideoSource(queryToPexels.weather[0].description);
+  try {
+    await changeVideoSource(queryToPexels.weather[0].description);
+  } catch (error) {
+    const weatherContainer = document.getElementById('weatherContainer');
+    weatherContainer.style.display = 'block';
+    document.getElementById('weatherContainer').innerHTML = `<p>${city} not found as a city.</p>`;
+  }
 });
 
 async function fetchWeather(city) {

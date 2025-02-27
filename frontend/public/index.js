@@ -17,6 +17,12 @@ document.getElementById('weatherForm').addEventListener('submit', async (event) 
   }
 });
 
+// Let Header font have dynamic colors
+setInterval(() => {
+  let header = document.querySelector("header");
+  invertColorOfElementAgainstBg(header);
+}, 200);
+
 async function fetchWeather(city) {
   try {
     const response = await fetch(`http://${host}:${port}/api/weather?city=${city}`);
@@ -28,7 +34,7 @@ async function fetchWeather(city) {
     return data;
   } catch (error) {
     document.getElementById('weatherContainer').innerHTML = `<p>${error.message}</p>`;
-    return {error: 'error'};
+    return { error: 'error' };
   }
 }
 
@@ -51,7 +57,7 @@ async function changeVideoSource(query) {
     `https://api.pexels.com/videos/search?query=${query}&per_page=1`, // Maybe take the last string of 'query' only
     {
       method: 'GET',
-      headers: {'Authorization': `${pexelsAPI}`}
+      headers: { 'Authorization': `${pexelsAPI}` }
     });
   let pexelResponseJson = await pexelResponse.json();
   let pexelVideo = pexelResponseJson.videos[0].video_files[2].link; // TODO: The second array number (choices 0 to 6) signals the resolution of the video. Make it variable?
@@ -62,4 +68,47 @@ async function changeVideoSource(query) {
 
   backgroundVideoElement.load()
   backgroundVideoElement.play()
+}
+
+function invertColorOfElementAgainstBg(htmlElement) {
+  const point = getElementSurroundingPoint(htmlElement);
+  const video = document.getElementById("video-container");
+  const videoCaptureCanvas = document.getElementById("video-capture-canvas");
+
+  const ctx = videoCaptureCanvas.getContext("2d", { willReadFrequently: true });
+
+  videoCaptureCanvas.width = video.videoWidth;
+  videoCaptureCanvas.height = video.videoHeight;
+
+  // Copy the video frame to the videoCanvas to extract colors at point
+  ctx.drawImage(video, 0, 0, videoCaptureCanvas.width, videoCaptureCanvas.height, 0, 0, videoCaptureCanvas.width, videoCaptureCanvas.height);
+
+  try {
+    const { x, y } = viewportToCanvas(videoCaptureCanvas, point.x, point.y);
+    const [r, g, b] = ctx.getImageData(x, y, 1, 1).data;
+    const invertedColor = `rgb(${255 - r}, ${255 - g}, ${255 - b})`;
+
+    if (htmlElement) {
+      htmlElement.style.color = invertedColor;
+    }
+
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+}
+
+function getElementSurroundingPoint(element) {
+  const rect = element.getBoundingClientRect();
+  return {
+    x: rect.left + (rect.width / 2),
+    y: rect.top + (rect.height * 0.25),
+  };
+}
+
+function viewportToCanvas(canvas, x, y) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (x - rect.left) * (canvas.width / rect.width),
+    y: (y - rect.top) * (canvas.height / rect.height)
+  };
 }

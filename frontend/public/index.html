@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Climasphere</title>
+        <title id="climasphere-title">Climasphere</title>
         <meta name="description" content="Climasphere - Your weather companion">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,9 +11,12 @@
         <link rel="stylesheet" href="styles.css">
         <!-- Place favicon.ico in the root directory -->
     </head>
+
+    <canvas id="video-capture-canvas"></canvas>
+
     <body>
 
-        <video id="video-container" autoplay muted loop>
+        <video id="video-container" autoplay muted loop crossorigin="anonymous">
             <source id="background-video-source" src="https://videos.pexels.com/video-files/7799988/7799988-sd_640_360_25fps.mp4" type="video/mp4">
             Your browser does not support my HTML5 video player
         </video>

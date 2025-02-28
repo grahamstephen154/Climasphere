@@ -25,12 +25,10 @@ Then open <http://localhost:8000/> or <http://localhost:8000/index.html> in a we
 # Example `env.js`
 
 ```JavaScript
-const env = {
+export const env = {
   port: '8080',
   host: 'localhost',
-  pexelsAPI: 'api-key-here'
+  pexelsAPIKey: 'api-key-here'
 };
-
-export { env };
 ```
 

@@ -16,7 +16,6 @@ document.getElementById('weatherForm').addEventListener('submit', async (event) 
     const weatherContainer = document.getElementById('weatherContainer');
     weatherContainer.style.display = 'block';
     document.getElementById('weatherContainer').innerHTML = `<p>${city} not found as a city.</p>`;
-    console.log('error:', error);
   }
 });
 

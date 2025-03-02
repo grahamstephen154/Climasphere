@@ -1,18 +1,27 @@
 
 # Table of Contents
 
-1.  [BACKEND](#backend)
+1.  [Using the Website](#website-usage)
+2.  [BACKEND](#backend)
     1.  [API structure for querying current weather:](#query-current-weather)
     2.  [Examples of working requests to the backend:](#working-requests-backend)
     3.  [Examples of responses from the backend:](#responses-from-backend)
     4.  [Command to build and run backend:](#build-and-run-backend)
-2.  [FRONTEND](#frontend)
+3.  [FRONTEND](#frontend)
     1.  [Serve the frontend](#serve-frontend)
     2.  [Example `env.js`](#example-env-js)
-3.  [Setting up Docker](#setup-docker)
+4.  [Setting up Docker](#setup-docker)
     1.  [Setup a `.env` file](#setup-root-env-file)
     2.  [Run docker commands](#run-docker)
 
+
+
+<a id="website-usage"></a>
+
+# Using the Website
+
+Put in city or country name into the prompt. It shows the current weather (the
+temperature, humidity, and weather condition).
 
 
 <a id="backend"></a>

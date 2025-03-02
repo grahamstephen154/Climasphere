@@ -9,6 +9,9 @@
 2.  [FRONTEND](#frontend)
     1.  [Serve the frontend](#serve-frontend)
     2.  [Example `env.js`](#example-env-js)
+3.  [Setting up Docker](#setup-docker)
+    1.  [Setup a `.env` file](#setup-root-env-file)
+    2.  [Run docker commands](#run-docker)
 
 
 
@@ -113,14 +116,14 @@
 
 ## Serve the frontend
 
-Create `env.js` and add the relevant environment variables into it. Example
-shown [here](#example-env-js)
+Create `env.js` and add the relevant environment variables into it. Example shown [here](#example-env-js).
 
     cd frontend/public/
     touch env.js
     python -m http.server 8000
 
-Then open <http://localhost:8000/> or <http://localhost:8000/index.html> in a web-browser
+Then open <http://localhost:8000/> or <http://localhost:8000/index.html> in a
+web-browser.
 
 
 <a id="example-env-js"></a>
@@ -134,4 +137,41 @@ Then open <http://localhost:8000/> or <http://localhost:8000/index.html> in a we
     };
     
     export { env };
+
+
+<a id="setup-docker"></a>
+
+# Setting up Docker
+
+You don&rsquo;t need to setup neither the `env.js` file for the frontend nor the
+`application.properties` file for the backend as docker will outomate that for you
+using your `.env` file at the root of the project.
+
+Install [Docker](https://www.docker.com/).
+
+
+<a id="setup-root-env-file"></a>
+
+## Setup a `.env` file
+
+    #!/usr/bin/env bash
+    
+    export PEXELS_API_KEY={PEXELS-API-KEY-HERE}
+    export WEATHER_API_KEY={OPEN-WEATHER-MAP-API-KEY-HERE}
+    export WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
+    export BACKEND_PORT=8080
+    export BACKEND_HOST=localhost
+
+
+<a id="run-docker"></a>
+
+## Run docker commands
+
+From the root of the project:
+
+    $ docker-compose build
+    $ docker-compose run
+
+You will be able to access resoueces using <http://localhost:8000/> or
+<http://localhost:8000/index.html>
 

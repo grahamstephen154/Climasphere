@@ -3,6 +3,13 @@
 *.log
 tmp/
 
+# Environment files
+*.env
+**/env.js
+
+**/*.org
+**/.dumbjump
+
 ### JAVA
 EndSection
 # Compiled class file
